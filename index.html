@@ -523,6 +523,1109 @@ footer{
   position:absolute;pointer-events:none;z-index:0;
   border-radius:50%;filter:blur(80px);
 }
+
+/* ── MOBILE ── */
+/* hide the custom cursor entirely on touch devices — it just floats at 0,0 otherwise */
+@media(hover:none),(pointer:coarse){
+  #cursor{display:none}
+  body{cursor:auto}
+  .nav-cta,.btn-hero,.btn-buy{cursor:pointer}
+}
+
+@media(max-width:480px){
+  /* nav */
+  nav{padding:0 16px;height:56px}
+  .nav-logo{font-size:16px}
+
+  /* hero */
+  .hero{padding:90px 16px 60px;min-height:auto}
+  .hero-h1{font-size:clamp(42px,13vw,68px);letter-spacing:-.04em;line-height:.9;margin-bottom:20px}
+  .hero-sub{font-size:14px;margin-bottom:32px}
+  .hero-actions{flex-direction:column;align-items:center;gap:10px;margin-bottom:44px}
+  .btn-hero{width:100%;max-width:320px;justify-content:center;padding:13px 24px;font-size:14px}
+
+  /* hero stats — 2 per row on small screens */
+  .hero-stats{gap:0;width:100%}
+  .hstat{padding:12px 0;flex:1 1 50%;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .hstat:nth-child(2n){border-right:none}
+  .hstat:nth-last-child(-n+2){border-bottom:none}
+  .hstat-n{font-size:22px}
+
+  /* terminal */
+  .hero-terminal{margin-top:44px}
+  .term-body{font-size:10.5px;padding:14px 14px;height:200px;line-height:1.8}
+  .term-title{font-size:10px}
+
+  /* preview section */
+  .preview-section{padding:0 12px;margin-top:44px}
+  .preview-bar{height:32px;padding:0 10px;gap:5px}
+  .preview-bar-dot{width:8px;height:8px}
+  .preview-bar-url{font-size:9px;padding:0 8px;max-width:200px}
+
+  /* tools grid — single column */
+  .tools-grid{grid-template-columns:1fr}
+  .tool-chip{padding:12px 14px}
+
+  /* features grid already goes 1 col at 560px, just tighten padding */
+  .feat-card{padding:20px}
+
+  /* bento already goes 1 col at 560px */
+  .bento-card{padding:20px}
+
+  /* pricing */
+  .buy-section{padding:60px 16px;margin-top:60px}
+  .price-card{padding:28px 20px;min-width:0;width:100%}
+  .price-amount{font-size:52px}
+  /* stack the two pricing cards properly */
+  .buy-inner > div[style*="display:flex"]{flex-direction:column;align-items:stretch}
+
+  /* footer */
+  footer{padding:20px 16px}
+  .foot-links{gap:14px}
+
+  /* section wrap */
+  .section-wrap{padding:60px 16px 0}
+
+  /* marquee fades narrower so items aren't fully hidden */
+  .marquee-fade-l,.marquee-fade-r{width:60px}
+
+  /* s-sub margin */
+  .s-sub{margin-bottom:36px}
+}
+
+@media(min-width:481px) and (max-width:700px){
+  /* hero */
+  .hero{padding:100px 20px 70px}
+  .hero-actions{gap:10px}
+  .btn-hero{padding:13px 26px;font-size:14px}
+
+  /* hero stats */
+  .hstat{padding:0 16px}
+  .hstat-n{font-size:24px}
+
+  /* terminal */
+  .term-body{font-size:11px;padding:16px 18px}
+
+  /* pricing */
+  .buy-section{padding:80px 24px}
+  .price-card{padding:32px 28px;min-width:0;width:100%}
+  .buy-inner > div[style*="display:flex"]{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Open<span>Intel</span></div>
+  <div class="nav-links">
+    <a href="#tools">Tools</a>
+    <a href="#features">Features</a>
+    <a href="#buy">Pricing</a>
+  </div>
+  <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="nav-cta">
+    <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2"><path d="M21.5 2.5L2 9.5l7 2.5 2.5 7 3-5 5 3z"/></svg>
+    Buy on Telegram
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Self-Hosted OSINT Suite
+    </div>
+
+    <h1 class="hero-h1">
+      Investigate<br><em>anything.</em>
+    </h1>
+
+    <p class="hero-sub">
+      <strong>35 intelligence tools.</strong> One authenticated dashboard that runs entirely on your machine — no cloud, no subscriptions, no one watching your queries.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="btn-hero btn-hero-primary">
+        <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2"><path d="M21.5 2.5L2 9.5l7 2.5 2.5 7 3-5 5 3z"/></svg>
+        Get OpenIntel
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="#tools" class="btn-hero btn-hero-ghost">
+        See all 35 tools
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">35</div><div class="hstat-l">Tools</div></div>
+      <div class="hstat"><div class="hstat-n">50+</div><div class="hstat-l">Platforms</div></div>
+      <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">Subdomain sources</div></div>
+      <div class="hstat"><div class="hstat-n">0</div><div class="hstat-l">Tracking</div></div>
+      <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l">Lifetime</div></div>
+    </div>
+  </div>
+
+  <!-- Terminal -->
+  <div class="hero-terminal">
+    <div class="terminal">
+      <div class="term-bar">
+        <div class="tdot" style="background:#ef4444"></div>
+        <div class="tdot" style="background:#f59e0b"></div>
+        <div class="tdot" style="background:#22c55e"></div>
+        <span class="term-title">openintel — live session</span>
+      </div>
+      <div class="term-body" id="term-body">
+        <div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">subdomain enum target.com</span></div>
+        <div class="to">→ Querying crt.sh · Certspotter · HackerTarget · OTX…</div>
+        <div><span class="tok">✓</span> <span class="to">147 subdomains across 4 sources · Active: <b style="color:#e8ecf8">89</b> · Unresolved: 13</span></div>
+        <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">email osint target@corp.io</span></div>
+        <div><span class="tok">✓</span> <span class="to">Gravatar found · MX reachable · <span class="te">3 breaches</span> (LinkedIn, Adobe, Dropbox)</span></div>
+        <div><span class="tok">✓</span> <span class="to">Social: GitHub <span class="tok">found</span> · Twitter <span class="tok">found</span> · Reddit <span class="tok">found</span></span></div>
+        <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">ssl inspect github.com</span></div>
+        <div><span class="tok">✓</span> <span class="to">TLS 1.3 · DigiCert · 147 days left · 34 SANs · <span class="tok">No issues detected</span></span></div>
+        <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOT PREVIEW -->
+<div class="preview-section reveal">
+  <div style="text-align:center;margin-bottom:28px;">
+    <div class="s-eyebrow" style="display:inline-block;">Dashboard Preview</div>
+    <div style="font-family:var(--display);font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-.04em;color:var(--text);margin-top:8px;">See it in action</div>
+  </div>
+  <div style="position:relative;">
+    <div class="preview-glow"></div>
+    <div class="preview-wrap">
+      <div class="preview-fade-top"></div>
+      <div class="preview-bar">
+        <div class="preview-bar-dot" style="background:#ef4444;"></div>
+        <div class="preview-bar-dot" style="background:#f59e0b;"></div>
+        <div class="preview-bar-dot" style="background:#22c55e;"></div>
+        <div class="preview-bar-url">127.0.0.1:7658</div>
+      </div>
+      <img
+        class="preview-img"
+        src="preview.jpg"
+        alt="OpenIntel Dashboard Preview"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <!-- Fallback shown if image not embedded yet -->
+      <div style="display:none;align-items:center;justify-content:center;aspect-ratio:16/9;background:var(--surface2);flex-direction:column;gap:12px;">
+        <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:var(--muted2);fill:none;stroke-width:1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <div style="font-size:12px;color:var(--muted2);font-family:var(--mono);">Run the embed command below to add your screenshot</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-fade-l"></div>
+  <div class="marquee-fade-r"></div>
+  <div class="marquee-track" id="mq-track"></div>
+</div>
+
+<!-- TOOLS SECTION -->
+<section id="tools">
+  <div class="section-accent" style="width:500px;height:500px;background:rgba(79,126,248,.05);top:-100px;left:-100px"></div>
+  <div class="section-wrap" style="position:relative;z-index:1">
+    <div class="reveal">
+      <div class="s-eyebrow">The Arsenal</div>
+      <div class="s-title">35 tools, all included</div>
+      <div class="s-sub">Intelligence, network recon, utilities — everything ships together. One purchase, every tool, forever.</div>
+    </div>
+
+    <!-- Category: Intelligence -->
+    <div style="margin-bottom:14px" class="reveal">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px;">
+        <div style="width:4px;height:14px;background:var(--accent);border-radius:2px"></div>
+        Intelligence & OSINT
+      </div>
+      <div class="tools-grid">
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div><div class="chip-name">OSINT Lookup</div><div class="chip-desc">Breach databases & public records</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(244,114,182,.12);color:#f472b6"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="chip-name">Email OSINT</div><div class="chip-desc">Breaches, SMTP, social profiles</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(167,139,250,.12);color:#a78bfa"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><div class="chip-name">Username Lookup</div><div class="chip-desc">50+ platforms simultaneously</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,211,238,.12);color:#22d3ee"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-.96a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2.04z"/></svg></div><div><div class="chip-name">Phone Lookup</div><div class="chip-desc">Carrier, country, line type</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(139,92,246,.12);color:#a78bfa"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77"/></svg></div><div><div class="chip-name">GitHub Finder</div><div class="chip-desc">Repos & code linked to any domain</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(245,158,11,.12);color:#f59e0b"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="6" height="6" rx="1"/><rect x="16" y="7" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/></svg></div><div><div class="chip-name">Blockchain Explorer</div><div class="chip-desc">BTC, ETH, LTC, DOGE wallets</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(239,68,68,.12);color:#ef4444"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="chip-name">Wayback Machine</div><div class="chip-desc">Full Internet Archive CDX history</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(15,23,42,.5);color:#5a6280"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><div><div class="chip-name">Dark Web Monitor</div><div class="chip-desc">.onion reachability via Tor</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div><div><div class="chip-name">Pastebin Search</div><div class="chip-desc">Paste sites & GitHub leak search</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(20,184,166,.12);color:#2dd4bf"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div><div class="chip-name">Universal Search</div><div class="chip-desc">Auto-detect & run all tools at once</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(99,102,241,.12);color:#818cf8"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01"/></svg></div><div><div class="chip-name">MAC Lookup</div><div class="chip-desc">IEEE OUI vendor identification</div></div></div>
+      </div>
+    </div>
+
+    <!-- Category: Network -->
+    <div style="margin-bottom:14px;margin-top:28px" class="reveal">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:10px;">
+        <div style="width:4px;height:14px;background:var(--green);border-radius:2px"></div>
+        Network & Infrastructure
+      </div>
+      <div class="tools-grid">
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="chip-name">DNS Lookup</div><div class="chip-desc">A, AAAA, MX, NS, TXT, CNAME, SOA</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(251,146,60,.12);color:#fb923c"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="chip-name">IP Geolocation</div><div class="chip-desc">City-level, multi-source accuracy</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><div class="chip-name">Subdomain Finder</div><div class="chip-desc">4 passive sources + DNS probing</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(239,68,68,.12);color:#ef4444"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/><path d="M12 2v2M12 18v2M4.93 4.93l1.41 1.41"/></svg></div><div><div class="chip-name">Reverse IP</div><div class="chip-desc">All domains on a shared IP</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(99,102,241,.12);color:#818cf8"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><div><div class="chip-name">SSL Inspector</div><div class="chip-desc">Cert chain, expiry, SANs, ciphers</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,211,238,.12);color:#22d3ee"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><div><div class="chip-name">HTTP Headers</div><div class="chip-desc">Security audit & fingerprinting</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div><div class="chip-name">Port Scanner</div><div class="chip-desc">TCP scan with banner grabbing</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(245,158,11,.12);color:#f59e0b"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div><div><div class="chip-name">WHOIS History</div><div class="chip-desc">RDAP, registrar timeline</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(239,68,68,.12);color:#ef4444"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="chip-name">CVE Search</div><div class="chip-desc">NVD database, CVSS scoring</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div><div><div class="chip-name">Google Dorks</div><div class="chip-desc">Advanced search query builder</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M12 11v4M10 13h4"/></svg></div><div><div class="chip-name">Who Am I</div><div class="chip-desc">Browser fingerprint & IP reveal</div></div></div>
+      </div>
+    </div>
+
+    <!-- Category: Utilities -->
+    <div style="margin-top:28px" class="reveal">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:10px;">
+        <div style="width:4px;height:14px;background:var(--purple);border-radius:2px"></div>
+        Utilities & Analysis
+      </div>
+      <div class="tools-grid">
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(167,139,250,.12);color:#a78bfa"><svg viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div><div><div class="chip-name">Hash Generator</div><div class="chip-desc">MD5, SHA-256, Blake2 and more</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(245,158,11,.12);color:#f59e0b"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><div><div class="chip-name">Encoder / Decoder</div><div class="chip-desc">Base64, hex, JWT, ROT-13 & more</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="11.5" x2="17" y2="6"/><line x1="7" y1="12.5" x2="17" y2="18"/></svg></div><div><div class="chip-name">Intelligence Graph</div><div class="chip-desc">Visual node mapping canvas</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(239,68,68,.12);color:#ef4444"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/><line x1="4" y1="4" x2="20" y2="20"/></svg></div><div><div class="chip-name">EXIF Stripper</div><div class="chip-desc">Remove GPS & device metadata</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(14,165,233,.12);color:#38bdf8"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/><path d="M3 9h4M3 15h4"/></svg></div><div><div class="chip-name">Image Metadata</div><div class="chip-desc">Full EXIF, XMP, IPTC, ICC data</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(168,85,247,.12);color:#a855f7"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div><div class="chip-name">XOR Decoder</div><div class="chip-desc">With single-byte brute force</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(244,114,182,.12);color:#f472b6"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div><div><div class="chip-name">Color Picker</div><div class="chip-desc">HEX, RGB, HSL, CMYK converter</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div class="chip-name">URL Encoder</div><div class="chip-desc">Encode, decode, parse components</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M8 16h.01M12 16h.01M16 16h.01"/></svg></div><div><div class="chip-name">Password Generator</div><div class="chip-desc">Cryptographically secure, configurable</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(245,158,11,.12);color:#f59e0b"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div><div class="chip-name">Notes</div><div class="chip-desc">SQLite-persistent investigation notes</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(99,102,241,.12);color:#818cf8"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><path d="M5 12H2M22 12h-3M9 5l3-3 3 3M9 19l3 3 3-3"/></svg></div><div><div class="chip-name">Diff Tool</div><div class="chip-desc">LCS-based line comparison</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,211,238,.12);color:#22d3ee"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><path d="M3.05 11a9 9 0 1 1 .5 4"/><path d="M3 16v-5h5"/></svg></div><div><div class="chip-name">Search History</div><div class="chip-desc">Re-run any past lookup instantly</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section id="features" style="margin-top:0">
+  <div class="section-accent" style="width:600px;height:400px;background:rgba(34,197,94,.04);top:50%;right:-200px"></div>
+  <div class="section-wrap" style="position:relative;z-index:1">
+    <div class="reveal">
+      <div class="s-eyebrow">Why OpenIntel</div>
+      <div class="s-title">Built different</div>
+      <div class="s-sub">Most OSINT tools send your queries to someone else's servers. OpenIntel runs entirely on your machine — your targets, your data, your rules.</div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feat-card fc-blue reveal">
+        <div class="feat-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="feat-title">100% Self-Hosted</div>
+        <div class="feat-desc">Runs on <code style="font-family:var(--mono);font-size:11px;background:var(--surface2);padding:1px 5px;border-radius:3px">127.0.0.1:7658</code>. Zero telemetry. Your queries never leave your machine unless you initiate a lookup.</div>
+      </div>
+      <div class="feat-card fc-green reveal" style="transition-delay:.06s">
+        <div class="feat-icon" style="background:rgba(34,197,94,.12);color:#22c55e">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="feat-title">Telegram OTP Auth</div>
+        <div class="feat-desc">No passwords stored anywhere. Register or sign in with a username — a Telegram bot delivers a one-time 6-digit code to your account.</div>
+      </div>
+      <div class="feat-card fc-yellow reveal" style="transition-delay:.12s">
+        <div class="feat-icon" style="background:rgba(245,158,11,.12);color:#f59e0b">
+          <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><path d="M3.05 11a9 9 0 1 1 .5 4"/><path d="M3 16v-5h5"/></svg>
+        </div>
+        <div class="feat-title">Persistent History</div>
+        <div class="feat-desc">Every lookup from every tool is logged to a local SQLite database tied to your account. Filter, search, and re-run anything with one click.</div>
+      </div>
+      <div class="feat-card fc-pink reveal" style="transition-delay:.18s">
+        <div class="feat-icon" style="background:rgba(244,114,182,.12);color:#f472b6">
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="11.5" x2="17" y2="6"/><line x1="7" y1="12.5" x2="17" y2="18"/></svg>
+        </div>
+        <div class="feat-title">Intelligence Graph</div>
+        <div class="feat-desc">A Maltego-style canvas to visually map connections between names, emails, IPs, wallets, and addresses. Right-click to add, link, and edit nodes.</div>
+      </div>
+      <div class="feat-card fc-cyan reveal" style="transition-delay:.24s">
+        <div class="feat-icon" style="background:rgba(34,211,238,.12);color:#22d3ee">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <div class="feat-title">Universal Search</div>
+        <div class="feat-desc">Paste any input — IP, domain, email, username, phone, wallet. OpenIntel auto-detects the type and fires every relevant tool simultaneously.</div>
+      </div>
+      <div class="feat-card fc-purple reveal" style="transition-delay:.3s">
+        <div class="feat-icon" style="background:rgba(167,139,250,.12);color:#a78bfa">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="feat-title">Multi-Source Accuracy</div>
+        <div class="feat-desc">Critical lookups cross-reference multiple APIs in parallel — 4 subdomain sources, 3 IP providers, 3 MAC vendors — for maximum coverage and accuracy.</div>
+      </div>
+    </div>
+
+    <!-- Bento extra detail -->
+    <div class="bento" style="margin-top:10px">
+      <div class="bento-card bento-wide reveal" style="background:linear-gradient(145deg,var(--surface),rgba(79,126,248,.04));border-color:rgba(79,126,248,.15)">
+        <div class="bento-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="bento-label">Privacy First</div>
+        <div class="bento-title">Includes a full OpSec & Privacy Guide</div>
+        <div class="bento-desc">Step-by-step hardening instructions for Arch, Debian, Void, and Gentoo. Covers Mullvad VPN, Tor Browser, VeraCrypt, DNS-over-HTTPS, and more — all inside the dashboard.</div>
+        <div class="bento-chips"><span>Arch</span><span>Debian</span><span>Void Linux</span><span>Gentoo</span><span>Mullvad</span><span>Tor</span><span>VeraCrypt</span></div>
+      </div>
+      <div class="bento-card reveal" style="background:linear-gradient(145deg,var(--surface),rgba(34,197,94,.03));border-color:rgba(34,197,94,.12)">
+        <div class="bento-icon" style="background:rgba(34,197,94,.12);color:#22c55e">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+        </div>
+        <div class="bento-label">Setup</div>
+        <div class="bento-title">Running in under 2 minutes</div>
+        <div class="bento-desc">Install Python deps, drop in your API key, run <code style="font-family:var(--mono);font-size:11px;background:var(--surface2);padding:1px 5px;border-radius:3px">python server.py</code> — that's it.</div>
+        <div class="bento-chips"><span>Python 3.9+</span><span>Any OS</span><span>No Docker</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUY SECTION -->
+<section id="buy">
+  <div class="buy-section">
+    <div class="buy-glow"></div>
+    <div class="buy-glow-b"></div>
+    <div class="buy-inner">
+      <div class="buy-badge">One-Time Purchase · Lifetime License</div>
+      <h2 class="buy-title">Own it.<br><span>Forever.</span></h2>
+      <p class="buy-sub">No monthly fees. No seat limits. No expiry. Pay once and OpenIntel is yours — every update included.</p>
+
+      <!-- Crypto badge -->
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:20px;padding:5px 16px;margin-bottom:36px;">
+        <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M9.5 8H14a2.5 2.5 0 0 1 0 5H9.5V8z"/><path d="M9.5 13H14a2.5 2.5 0 0 1 0 5H9.5V13z"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="18" x2="12" y2="20"/></svg>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;">Crypto payments only — BTC · ETH · USDT · XMR</span>
+      </div>
+
+      <!-- Pricing cards -->
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;">
+
+        <!-- Monthly -->
+        <div class="price-card" style="min-width:300px;text-align:left;">
+          <div class="price-label">Monthly</div>
+          <div style="display:flex;align-items:flex-end;gap:4px;margin-bottom:4px;">
+            <div class="price-amount" style="font-size:58px;">$15</div>
+            <div style="font-size:14px;color:var(--muted);margin-bottom:14px;font-weight:300;">/month</div>
+          </div>
+          <div class="price-once">Renews monthly · Cancel anytime</div>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All 35 tools</strong> — full access</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All updates</strong> during subscription</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup support</strong> included</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>LeakOSINT</strong> breach database access</span></li>
+            <li style="opacity:.4"><svg viewBox="0 0 24 24" style="stroke:var(--muted)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Lifetime ownership</span></li>
+          </ul>
+          <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="btn-buy" style="background:transparent;border:1px solid var(--border2);color:var(--text);box-shadow:none;">
+            <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M21.5 2.5L2 9.5l7 2.5 2.5 7 3-5 5 3z"/></svg>
+            Get Monthly
+          </a>
+        </div>
+
+        <!-- Lifetime — highlighted -->
+        <div class="price-card" style="min-width:300px;text-align:left;border-color:rgba(79,126,248,.4);box-shadow:0 0 100px rgba(79,126,248,.1),inset 0 1px 0 rgba(255,255,255,.05);position:relative;">
+          <!-- Best value badge -->
+          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;white-space:nowrap;font-family:var(--display);">Best Value</div>
+          <div class="price-label" style="margin-top:8px;">Lifetime</div>
+          <div style="display:flex;align-items:flex-end;gap:6px;margin-bottom:4px;">
+            <div class="price-amount" style="font-size:58px;color:var(--accent);text-shadow:0 0 60px rgba(79,126,248,.3)">$150</div>
+            <div style="font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:300;">one-time</div>
+          </div>
+          <div class="price-once">Pay once · Own it forever · <span style="color:var(--green)">Save $30/yr vs monthly</span></div>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All 35 tools</strong> — full source code</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All future updates</strong> — new tools over time</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup support</strong> included</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>LeakOSINT</strong> lifetime key included</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Lifetime ownership</strong> — never pay again</span></li>
+          </ul>
+          <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="btn-buy">
+            <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M21.5 2.5L2 9.5l7 2.5 2.5 7 3-5 5 3z"/></svg>
+            Get Lifetime Access
+          </a>
+        </div>
+
+      </div>
+
+      <div class="buy-note" style="font-size:12px;color:var(--muted2);">
+        Contact <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">@abusllve</a> on Telegram to purchase · Delivered instantly after payment
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Open<span>Intel</span></div>
+  <div class="foot-links">
+    <a href="#tools">Tools</a>
+    <a href="#features">Features</a>
+    <a href="#buy">Pricing</a>
+    <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer">@abusllve</a>
+  </div>
+</footer>
+
+<script>
+// custom cursor — dot follows instantly, ring lags behind for that trailing effect
+// skip entirely on touch devices, nothing to track there
+const dot  = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+const isTouch = window.matchMedia('(hover:none),(pointer:coarse)').matches;
+if (!isTouch) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function animCursor() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    dot.style.left  = mx + 'px';
+    dot.style.top   = my + 'px';
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animCursor);
+  })();
+
+  // make the dot pulse slightly bigger when hovering links/buttons
+  document.querySelectorAll('a,button').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.style.width = '10px'; dot.style.height = '10px'; });
+    el.addEventListener('mouseleave', () => { dot.style.width = '8px'; dot.style.height = '8px'; });
+  });
+}
+
+// build the scrolling tool marquee — duplicate the list so the loop looks seamless
+const TOOLS = [
+  {icon:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>',name:'OSINT Lookup'},
+  {icon:'<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',name:'Email OSINT'},
+  {icon:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',name:'IP Geolocation'},
+  {icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',name:'DNS Lookup'},
+  {icon:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',name:'Subdomain Finder'},
+  {icon:'<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/>',name:'SSL Inspector'},
+  {icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',name:'CVE Search'},
+  {icon:'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',name:'Username Lookup'},
+  {icon:'<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>',name:'Port Scanner'},
+  {icon:'<rect x="2" y="7" width="6" height="6" rx="1"/><rect x="16" y="7" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/>',name:'Blockchain Explorer'},
+  {icon:'<polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>',name:'HTTP Headers'},
+  {icon:'<circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="11.5" x2="17" y2="6"/><line x1="7" y1="12.5" x2="17" y2="18"/>',name:'Intel Graph'},
+  {icon:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12"/>',name:'Phone Lookup'},
+  {icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>',name:'Image Metadata'},
+  {icon:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>',name:'Universal Search'},
+  {icon:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',name:'Notes'},
+  {icon:'<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/>',name:'Hash Generator'},
+  {icon:'<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>',name:'Wayback Machine'},
+  {icon:'<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01"/>',name:'MAC Lookup'},
+  {icon:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>',name:'Color Picker'},
+];
+const track = document.getElementById('mq-track');
+const all = [...TOOLS, ...TOOLS];
+track.innerHTML = all.map(t =>
+  `<div class="mq-item"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2">${t.icon}</svg>${t.name}<span class="mq-dot"></span></div>`
+).join('');
+
+// scroll reveal — stagger siblings so cards don't all pop in at the same time
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      // stagger siblings that haven't animated yet
+      const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+      const idx = siblings.indexOf(e.target);
+      setTimeout(() => {
+        e.target.classList.add('visible');
+      }, idx * 60);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.08});
+reveals.forEach(el => io.observe(el));
+
+// darken the nav a bit once the user scrolls past the hero fold
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    nav.style.background = 'rgba(4,5,10,.95)';
+    nav.style.borderBottomColor = 'rgba(255,255,255,.08)';
+  } else {
+    nav.style.background = 'rgba(4,5,10,.7)';
+    nav.style.borderBottomColor = 'rgba(255,255,255,.06)';
+  }
+}, {passive: true});
+
+// terminal screen rotation — cycles through a few preset demo outputs
+const SCREENS = [
+  `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">subdomain enum target.com</span></div>
+<div class="to">→ Querying crt.sh · Certspotter · HackerTarget · OTX…</div>
+<div><span class="tok">✓</span> <span class="to">147 subdomains across 4 sources · Active: <b style="color:#e8ecf8">89</b> · Unresolved: 13</span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">email osint target@corp.io</span></div>
+<div><span class="tok">✓</span> <span class="to">Gravatar found · MX reachable · <span class="te">3 breaches</span> (LinkedIn, Adobe, Dropbox)</span></div>
+<div><span class="tok">✓</span> <span class="to">Social: GitHub <span class="tok">✓</span> · Twitter <span class="tok">✓</span> · Reddit <span class="tok">✓</span></span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
+
+  `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">ssl inspect github.com</span></div>
+<div><span class="tok">✓</span> <span class="to">TLS 1.3 · DigiCert · Expires in 147 days · 34 SANs</span></div>
+<div><span class="tok">✓</span> <span class="to">No weak ciphers · No hostname mismatch · <span class="tok">All checks passed</span></span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">ip lookup 1.1.1.1</span></div>
+<div><span class="tok">✓</span> <span class="to">Cloudflare · AS13335 · San Jose, US</span></div>
+<div><span class="tok">✓</span> <span class="to">Hosting: <span class="tw">yes</span> · VPN: <span class="tok">no</span> · Tor: <span class="tok">no</span> · Proxy: <span class="tok">no</span></span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
+
+  `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">cve search log4j</span></div>
+<div><span class="tok">✓</span> <span class="to">12 results from NVD · Sorted by CVSS score</span></div>
+<div><span class="te">CRITICAL</span> <span class="to">CVE-2021-44228 · CVSS 10.0 · Log4Shell RCE</span></div>
+<div><span class="te">CRITICAL</span> <span class="to">CVE-2021-45046 · CVSS 9.0 · Incomplete fix bypass</span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">username lookup h4cker</span></div>
+<div><span class="tok">✓</span> <span class="to">Found on 14/50 platforms — GitHub · HackerOne · Reddit…</span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
+];
+let screenIdx = 0;
+// "tbody" is a reserved global in some browsers — using termBody instead
+const termBody = document.getElementById('term-body');
+function showScreen() {
+  termBody.style.opacity = '0';
+  termBody.style.transition = 'opacity .35s ease';
+  setTimeout(() => {
+    termBody.innerHTML = SCREENS[screenIdx];
+    termBody.style.opacity = '1';
+       screenIdx = (screenIdx + 1) % SCREENS.length;
+  }, 380);
+}
+// kick off the first swap after a short delay, then rotate every 5s
+setTimeout(() => {
+  showScreen();
+  setInterval(showScreen, 5000);
+}, 2500);
+
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>OpenIntel — Self-Hosted OSINT Suite</title>
+<meta name="description" content="35 intelligence tools. One self-hosted dashboard. No cloud, no subscriptions, no tracking."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04050a;
+  --surface:#0a0c14;
+  --surface2:#0f1120;
+  --border:rgba(255,255,255,.06);
+  --border2:rgba(255,255,255,.1);
+  --text:#e8ecf8;
+  --muted:#5a6280;
+  --muted2:#2e3450;
+  --accent:#4f7ef8;
+  --accent2:#7c9dff;
+  --green:#22c55e;
+  --red:#ef4444;
+  --yellow:#f59e0b;
+  --pink:#f472b6;
+  --purple:#a78bfa;
+  --cyan:#22d3ee;
+  --r:10px;
+  --font:'DM Sans',sans-serif;
+  --display:'Syne',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:15px;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  cursor:none;
+}
+a{color:inherit;text-decoration:none}
+
+/* ── Custom cursor ── */
+#cursor{position:fixed;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+#cursor-dot{width:8px;height:8px;background:#fff;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .15s;}
+#cursor-ring{width:36px;height:36px;border:1.5px solid rgba(255,255,255,.4);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,transform .1s;}
+body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{width:52px;height:52px;border-color:var(--accent2);}
+
+/* ── Screenshot preview ── */
+.preview-section{
+  max-width:1180px;margin:100px auto 0;padding:0 48px;
+  position:relative;z-index:2;
+}
+@media(max-width:700px){.preview-section{padding:0 20px;margin-top:60px;}}
+.preview-wrap{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  box-shadow:
+    0 80px 160px rgba(0,0,0,.8),
+    0 0 0 1px rgba(255,255,255,.03),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  background:var(--surface);
+}
+.preview-bar{
+  height:40px;
+  background:rgba(255,255,255,.025);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;padding:0 16px;gap:7px;
+  flex-shrink:0;
+}
+.preview-bar-dot{width:10px;height:10px;border-radius:50%;}
+.preview-bar-url{
+  flex:1;margin:0 12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:5px;
+  height:22px;
+  display:flex;align-items:center;padding:0 10px;
+  font-family:var(--mono);font-size:10px;color:var(--muted2);
+  max-width:320px;
+}
+.preview-img{
+  width:100%;display:block;
+  aspect-ratio:16/9;object-fit:cover;object-position:top left;
+}
+/* glow underneath */
+.preview-glow{
+  position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);
+  width:80%;height:120px;
+  background:radial-gradient(ellipse,rgba(79,126,248,.15) 0%,transparent 70%);
+  pointer-events:none;filter:blur(20px);
+  border-radius:50%;
+}
+/* top gradient fade so it blends into page */
+.preview-fade-top{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(79,126,248,.4) 50%,transparent);
+}
+
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  opacity:.4;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:62px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(4,5,10,.7);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:var(--display);
+  font-size:18px;font-weight:800;
+  letter-spacing:-.03em;
+  color:var(--text);
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color .15s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 22px;
+  background:var(--accent);color:#fff;
+  border-radius:var(--r);
+  font-size:13px;font-weight:700;
+  font-family:var(--display);
+  transition:all .15s;
+  box-shadow:0 4px 20px rgba(79,126,248,.3);
+  cursor:pointer;
+}
+.nav-cta:hover{background:#6690ff;transform:translateY(-1px);box-shadow:0 8px 28px rgba(79,126,248,.45)}
+@media(max-width:700px){nav{padding:0 20px}.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:120px 24px 80px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+/* Radial mesh background */
+.hero-mesh{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%,rgba(79,126,248,.14) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%,rgba(34,197,94,.05) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 70%,rgba(239,68,68,.04) 0%,transparent 55%);
+}
+/* Animated grid */
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(79,126,248,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(79,126,248,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 75%);
+}
+.hero-inner{position:relative;z-index:2;max-width:900px;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent2);
+  background:rgba(79,126,248,.08);
+  border:1px solid rgba(79,126,248,.22);
+  padding:5px 16px;border-radius:20px;
+  margin-bottom:32px;
+  animation:fadeUp .6s ease both;
+}
+.eyebrow-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+  animation:pulse 2s ease infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--accent)}50%{opacity:.4;box-shadow:0 0 2px var(--accent)}}
+.hero-h1{
+  font-family:var(--display);
+  font-size:clamp(52px,8.5vw,110px);
+  font-weight:800;
+  letter-spacing:-.06em;
+  line-height:.88;
+  color:var(--text);
+  margin-bottom:28px;
+  animation:fadeUp .6s .1s ease both;
+}
+.hero-h1 em{
+  font-style:normal;
+  color:var(--accent);
+  text-shadow:0 0 100px rgba(79,126,248,.35);
+}
+.hero-sub{
+  font-size:clamp(15px,2vw,19px);
+  font-weight:300;
+  color:var(--muted);
+  max-width:560px;
+  margin:0 auto 44px;
+  line-height:1.75;
+  animation:fadeUp .6s .2s ease both;
+}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-actions{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  margin-bottom:64px;
+  animation:fadeUp .6s .3s ease both;
+}
+/* cursor:none is set via JS once we confirm the custom cursor loaded */
+.btn-hero{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 32px;
+  font-family:var(--display);font-size:15px;font-weight:700;
+  border-radius:var(--r);cursor:pointer;
+  transition:all .18s;
+}
+.btn-hero-primary{
+  background:var(--accent);color:#fff;
+  box-shadow:0 4px 28px rgba(79,126,248,.4);
+  border:1px solid transparent;
+}
+.btn-hero-primary:hover{background:#6690ff;transform:translateY(-2px);box-shadow:0 12px 40px rgba(79,126,248,.5)}
+.btn-hero-ghost{
+  background:transparent;color:var(--muted);
+  border:1px solid var(--border2);
+}
+.btn-hero-ghost:hover{color:var(--text);border-color:rgba(79,126,248,.4);background:rgba(79,126,248,.06)}
+.btn-arrow{font-size:17px;transition:transform .15s}
+.btn-hero-primary:hover .btn-arrow{transform:translateX(3px)}
+
+/* Hero stats */
+.hero-stats{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;flex-wrap:wrap;
+  animation:fadeUp .6s .4s ease both;
+}
+.hstat{padding:0 28px;text-align:center;border-right:1px solid var(--border)}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:var(--display);font-size:28px;font-weight:800;color:var(--text);letter-spacing:-.04em;line-height:1}
+.hstat-l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* Floating terminal */
+.hero-terminal{
+  position:relative;z-index:2;
+  max-width:780px;width:100%;
+  margin:72px auto 0;
+  animation:fadeUp .7s .5s ease both;
+}
+.terminal{
+  background:#020308;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:
+    0 60px 140px rgba(0,0,0,.8),
+    0 0 0 1px rgba(255,255,255,.03),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+.term-bar{
+  height:44px;background:rgba(255,255,255,.025);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;padding:0 18px;gap:8px;
+}
+.tdot{width:11px;height:11px;border-radius:50%}
+.term-title{font-size:11px;color:var(--muted);margin-left:10px;font-family:var(--mono);letter-spacing:.06em}
+.term-body{padding:22px 24px;font-family:var(--mono);font-size:12.5px;line-height:2;text-align:left;height:240px;overflow:hidden;}
+.tp{color:var(--accent2)}.tc{color:var(--text)}.to{color:var(--muted)}.tok{color:var(--green)}.tw{color:var(--yellow)}.te{color:var(--red)}.td{color:var(--muted2)}
+.tcursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:middle;animation:blink .9s step-end infinite;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── SECTION BASE ── */
+section{position:relative}
+.section-wrap{max-width:1180px;margin:0 auto;padding:110px 48px 0}
+@media(max-width:700px){.section-wrap{padding:70px 24px 0}}
+.s-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:10px}
+.s-title{
+  font-family:var(--display);
+  font-size:clamp(30px,4.5vw,52px);
+  font-weight:800;letter-spacing:-.05em;line-height:1;
+  color:var(--text);margin-bottom:16px;
+}
+.s-sub{font-size:15px;font-weight:300;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:52px}
+
+/* ── TOOLS GRID ── */
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:8px;
+}
+.tool-chip{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  transition:all .2s;
+  position:relative;overflow:hidden;
+}
+.tool-chip::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:opacity .2s;
+  background:linear-gradient(135deg,rgba(79,126,248,.04),transparent);
+}
+.tool-chip:hover{border-color:rgba(79,126,248,.25);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.tool-chip:hover::before{opacity:1}
+.chip-icon{
+  width:34px;height:34px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.chip-icon svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.chip-name{font-size:13px;font-weight:600;color:var(--text);letter-spacing:-.01em}
+.chip-desc{font-size:11px;color:var(--muted);margin-top:1px;line-height:1.4}
+
+/* ── FEATURE CARDS ── */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.features-grid{grid-template-columns:1fr}}
+.feat-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;padding:28px;
+  transition:border-color .2s,transform .18s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.feat-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  opacity:.7;
+}
+.feat-card.fc-blue::after{background:linear-gradient(90deg,var(--accent),transparent)}
+.feat-card.fc-green::after{background:linear-gradient(90deg,var(--green),transparent)}
+.feat-card.fc-pink::after{background:linear-gradient(90deg,var(--pink),transparent)}
+.feat-card.fc-yellow::after{background:linear-gradient(90deg,var(--yellow),transparent)}
+.feat-card.fc-purple::after{background:linear-gradient(90deg,var(--purple),transparent)}
+.feat-card.fc-cyan::after{background:linear-gradient(90deg,var(--cyan),transparent)}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.feat-card.fc-blue:hover{border-color:rgba(79,126,248,.3)}
+.feat-card.fc-green:hover{border-color:rgba(34,197,94,.28)}
+.feat-card.fc-pink:hover{border-color:rgba(244,114,182,.28)}
+.feat-card.fc-yellow:hover{border-color:rgba(245,158,11,.28)}
+.feat-card.fc-purple:hover{border-color:rgba(167,139,250,.28)}
+.feat-card.fc-cyan:hover{border-color:rgba(34,211,238,.28)}
+.feat-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+}
+.feat-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.feat-title{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:8px}
+.feat-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.75}
+
+/* ── MARQUEE ── */
+.marquee-section{
+  margin-top:110px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:rgba(10,12,20,.6);
+  overflow:hidden;position:relative;padding:0;
+}
+.marquee-fade-l{position:absolute;top:0;bottom:0;left:0;width:160px;background:linear-gradient(to right,var(--bg),transparent);z-index:2;pointer-events:none}
+.marquee-fade-r{position:absolute;top:0;bottom:0;right:0;width:160px;background:linear-gradient(to left,var(--bg),transparent);z-index:2;pointer-events:none}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq-item{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 24px;
+  font-size:12px;font-weight:500;color:var(--muted);
+  white-space:nowrap;
+  border-right:1px solid var(--border);
+  transition:color .15s,background .15s;
+}
+.mq-item:hover{color:var(--text);background:rgba(79,126,248,.04)}
+.mq-item svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;opacity:.4;flex-shrink:0}
+.mq-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0}
+
+/* ── BENTO ── */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bento{grid-template-columns:1fr}}
+.bento-wide{grid-column:span 2}
+@media(max-width:560px){.bento-wide{grid-column:span 1}}
+.bento-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;padding:28px;
+  transition:all .22s;position:relative;overflow:hidden;
+}
+.bento-card:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(0,0,0,.35)}
+.bento-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--muted2);margin-bottom:5px}
+.bento-title{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.025em;margin-bottom:10px;line-height:1.15}
+.bento-desc{font-size:12.5px;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.bento-chips{display:flex;flex-wrap:wrap;gap:5px}
+.bento-chips span,.bento-chip{font-size:10px;font-weight:600;padding:2px 9px;border-radius:4px;background:var(--surface2);border:1px solid var(--border2);color:var(--muted);letter-spacing:.03em}
+.bento-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.bento-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* ── PRICING / CTA ── */
+.buy-section{
+  margin-top:110px;
+  padding:110px 48px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.buy-glow{
+  position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:1000px;height:700px;
+  background:radial-gradient(ellipse at top,rgba(79,126,248,.12) 0%,transparent 55%);
+  pointer-events:none;
+}
+.buy-glow-b{
+  position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,rgba(34,197,94,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.buy-inner{position:relative;z-index:2}
+.buy-badge{
+  display:inline-block;
+  font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--green);
+  background:rgba(34,197,94,.1);
+  border:1px solid rgba(34,197,94,.25);
+  padding:4px 16px;border-radius:20px;
+  margin-bottom:24px;
+}
+.buy-title{
+  font-family:var(--display);
+  font-size:clamp(40px,6vw,72px);
+  font-weight:800;letter-spacing:-.06em;line-height:.88;
+  color:var(--text);margin-bottom:20px;
+}
+.buy-title span{color:var(--accent);text-shadow:0 0 80px rgba(79,126,248,.3)}
+.buy-sub{font-size:16px;font-weight:300;color:var(--muted);max-width:440px;margin:0 auto 40px;line-height:1.75}
+
+/* Pricing card */
+.price-card{
+  display:inline-block;
+  background:var(--surface);
+  border:1px solid rgba(79,126,248,.25);
+  border-radius:20px;
+  padding:44px 52px;
+  margin:0 auto 44px;
+  position:relative;
+  box-shadow:0 0 80px rgba(79,126,248,.08),inset 0 1px 0 rgba(255,255,255,.04);
+  min-width:340px;
+  text-align:center;
+}
+.price-card::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:60%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.price-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.price-amount{
+  font-family:var(--display);font-size:68px;font-weight:800;letter-spacing:-.06em;
+  color:var(--text);line-height:1;margin-bottom:6px;
+}
+.price-once{font-size:13px;color:var(--muted);margin-bottom:28px;font-weight:300}
+.price-list{list-style:none;text-align:left;margin-bottom:32px;display:flex;flex-direction:column;gap:10px}
+.price-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13.5px;font-weight:400;color:var(--muted);
+}
+.price-list li svg{width:15px;height:15px;stroke:var(--green);fill:none;stroke-width:2.5;flex-shrink:0;margin-top:2px}
+.price-list li strong{color:var(--text);font-weight:500}
+.btn-buy{
+  display:inline-flex;align-items:center;gap:10px;
+  width:100%;justify-content:center;
+  padding:15px 28px;
+  background:var(--accent);color:#fff;
+  border-radius:var(--r);
+  font-family:var(--display);font-size:15px;font-weight:700;
+  transition:all .18s;cursor:pointer;
+  box-shadow:0 4px 28px rgba(79,126,248,.4);
+  border:none;
+}
+.btn-buy:hover{background:#6690ff;transform:translateY(-2px);box-shadow:0 12px 40px rgba(79,126,248,.5)}
+.btn-buy[style*="transparent"]:hover{background:var(--surface2);transform:translateY(-2px);box-shadow:none;border-color:var(--accent)}
+.btn-buy svg{width:16px;height:16px;flex-shrink:0}
+.buy-note{font-size:12px;color:var(--muted2);margin-top:12px}
+
+/* ── FOOTER ── */
+footer{
+  padding:28px 48px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.foot-logo{font-family:var(--display);font-size:16px;font-weight:800;letter-spacing:-.03em}
+.foot-logo span{color:var(--accent)}
+.foot-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.foot-links a{font-size:12px;color:var(--muted2);transition:color .15s}
+.foot-links a:hover{color:var(--text)}
+@media(max-width:600px){footer{padding:22px 24px;flex-direction:column;align-items:flex-start}}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── DIVIDER ── */
+.glow-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(79,126,248,.3) 30%,rgba(79,126,248,.5) 50%,rgba(79,126,248,.3) 70%,transparent);
+  margin:0 auto;max-width:600px;
+}
+
+/* Section background accents */
+.section-accent{
+  position:absolute;pointer-events:none;z-index:0;
+  border-radius:50%;filter:blur(80px);
+}
 </style>
 </head>
 <body>
