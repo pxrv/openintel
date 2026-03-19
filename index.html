@@ -172,7 +172,7 @@ nav{
   background-size:60px 60px;
   mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 75%);
 }
-.hero-inner{position:relative;z-index:2;max-width:900px;width:100%;}
+.hero-inner{position:relative;z-index:2;max-width:900px;}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
@@ -260,8 +260,6 @@ nav{
   max-width:780px;width:100%;
   margin:72px auto 0;
   animation:fadeUp .7s .5s ease both;
-  /* prevent it bleeding out on narrow screens */
-  box-sizing:border-box;
 }
 .terminal{
   background:#020308;
@@ -286,7 +284,7 @@ nav{
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
 /* ── SECTION BASE ── */
-section{position:relative;overflow:hidden}
+section{position:relative}
 .section-wrap{max-width:1180px;margin:0 auto;padding:110px 48px 0}
 @media(max-width:700px){.section-wrap{padding:70px 24px 0}}
 .s-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:10px}
@@ -494,8 +492,6 @@ section{position:relative;overflow:hidden}
 .btn-buy[style*="transparent"]:hover{background:var(--surface2);transform:translateY(-2px);box-shadow:none;border-color:var(--accent)}
 .btn-buy svg{width:16px;height:16px;flex-shrink:0}
 .buy-note{font-size:12px;color:var(--muted2);margin-top:12px}
-/* default min-width lives here so mobile can override it without fighting inline styles */
-.price-card{min-width:300px}
 
 /* ── FOOTER ── */
 footer{
@@ -526,129 +522,6 @@ footer{
 .section-accent{
   position:absolute;pointer-events:none;z-index:0;
   border-radius:50%;filter:blur(80px);
-}
-
-/* ── MOBILE ── */
-
-/* hide custom cursor on touch — nothing to track */
-@media(hover:none),(pointer:coarse){
-  #cursor{display:none !important}
-  body{cursor:auto}
-  #cursor-dot,#cursor-ring{display:none !important}
-}
-
-/* ── tablet 481–768px ── */
-@media(max-width:768px){
-  nav{padding:0 20px;height:56px}
-  .nav-links{display:none}
-  .nav-cta{padding:8px 16px;font-size:12px}
-
-  .hero{padding:88px 20px 56px}
-  .hero-sub{font-size:15px;margin-bottom:36px}
-  .hero-actions{gap:10px;margin-bottom:44px}
-  .hero-terminal{margin-top:48px}
-  .term-body{font-size:11px;padding:16px 18px;height:210px;line-height:1.85}
-
-  .hstat{padding:0 18px}
-  .hstat-n{font-size:24px}
-
-  .section-wrap{padding:80px 24px 0}
-  .buy-section{padding:80px 24px;margin-top:80px}
-
-  .tools-grid{grid-template-columns:repeat(2,1fr)}
-
-  .pricing-cards-row{flex-direction:column;align-items:center}
-  .price-card{min-width:0;width:100%;max-width:420px}
-}
-
-/* ── phone ≤480px (iPhone 15 = 390px) ── */
-@media(max-width:480px){
-  /* nav */
-  nav{padding:0 14px;height:48px}
-  .nav-logo{font-size:13px}
-  .nav-cta{padding:6px 10px;font-size:10px;gap:4px}
-
-  /* hero */
-  .hero{padding:62px 14px 36px;min-height:auto;align-items:center;text-align:center;}
-  .hero-inner{width:100%}
-  .hero-eyebrow{font-size:9px;padding:3px 10px;margin-bottom:14px;letter-spacing:.1em}
-  .hero-h1{font-size:18px;letter-spacing:-.02em;line-height:1.08;margin-bottom:10px;word-break:normal;overflow-wrap:normal;white-space:nowrap;}
-  .hero-sub{font-size:11px;line-height:1.55;margin:0 auto 16px;max-width:100%;text-align:center;}
-  .hero-actions{flex-direction:column;align-items:stretch;gap:7px;margin-bottom:20px;width:100%;}
-  .btn-hero{width:100%;justify-content:center;padding:10px 14px;font-size:12px;}
-  .btn-arrow{font-size:13px}
-
-  /* stats */
-  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;border:1px solid var(--border);border-radius:8px;overflow:hidden;animation:none;}
-  .hstat{padding:9px 6px;border-right:none;border-bottom:none;border-top:none;border-left:none;text-align:center;box-shadow:1px 1px 0 var(--border);}
-  .hstat:nth-last-child(-n+1),.hstat:nth-last-child(-n+2):nth-child(odd){box-shadow:1px 0 0 var(--border);}
-  .hstat:last-child{grid-column:span 2;box-shadow:none;border-top:1px solid var(--border);}
-  .hstat-n{font-size:16px}
-  .hstat-l{font-size:7px}
-
-  /* terminal */
-  .hero-terminal{margin-top:24px;width:100%;padding:0}
-  .term-bar{height:28px;padding:0 10px;gap:5px}
-  .tdot{width:7px;height:7px}
-  .term-title{font-size:8.5px}
-  .term-body{font-size:9px;padding:8px 10px;height:140px;line-height:1.6;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-
-  /* preview */
-  .preview-section{padding:0 14px;margin-top:32px}
-  .preview-bar{height:26px;padding:0 8px;gap:4px}
-  .preview-bar-dot{width:6px;height:6px}
-  .preview-bar-url{font-size:8px;height:15px;padding:0 6px;max-width:140px}
-
-  /* marquee */
-  .marquee-section{margin-top:32px}
-  .marquee-fade-l,.marquee-fade-r{width:32px}
-  .mq-item{padding:9px 14px;font-size:10.5px}
-
-  /* sections */
-  .section-wrap{padding:40px 14px 0}
-  .s-title{font-size:20px}
-  .s-eyebrow{font-size:9px}
-  .s-sub{font-size:11.5px;margin-bottom:26px;max-width:100%}
-
-  /* tools */
-  .tools-grid{grid-template-columns:1fr}
-  .tool-chip{padding:9px 10px;gap:8px}
-  .chip-icon{width:26px;height:26px;border-radius:6px}
-  .chip-icon svg{width:12px;height:12px}
-  .chip-name{font-size:11px}
-  .chip-desc{font-size:9.5px}
-
-  /* feature cards */
-  .feat-card{padding:14px 13px}
-  .feat-icon{width:32px;height:32px;margin-bottom:10px;border-radius:9px}
-  .feat-icon svg{width:16px;height:16px}
-  .feat-title{font-size:13px}
-  .feat-desc{font-size:11px}
-
-  /* bento */
-  .bento-card{padding:14px 13px}
-  .bento-icon{width:32px;height:32px;margin-bottom:10px}
-  .bento-title{font-size:13px}
-  .bento-desc{font-size:10.5px}
-
-  /* pricing */
-  .buy-section{padding:36px 14px 32px;margin-top:40px}
-  .buy-title{font-size:26px;line-height:.95}
-  .buy-sub{font-size:11.5px;max-width:100%}
-  .buy-badge{font-size:9px;padding:3px 11px}
-  .pricing-cards-row{flex-direction:column;align-items:stretch;gap:18px;margin-bottom:20px;width:100%;}
-  .price-card{min-width:0;width:100%;padding:16px 13px}
-  .price-amount{font-size:38px}
-  .price-label{font-size:9px}
-  .price-once{font-size:10.5px}
-  .price-list li{font-size:11px;gap:7px}
-  .btn-buy{font-size:12px;padding:10px 14px}
-
-  /* footer */
-  footer{padding:14px 14px;gap:10px}
-  .foot-logo{font-size:12px}
-  .foot-links{gap:10px;flex-wrap:wrap}
-  .foot-links a{font-size:10.5px}
 }
 </style>
 </head>
@@ -687,7 +560,7 @@ footer{
     </h1>
 
     <p class="hero-sub">
-      <strong>35 intelligence tools.</strong> One authenticated dashboard that runs entirely on your machine — no cloud, no subscriptions, no one watching your queries.
+      <strong>40+ intelligence tools.</strong> One authenticated dashboard that runs entirely on your machine — no cloud, no subscriptions, no one watching your queries. Includes a <strong>built-in local AI assistant</strong> powered by Ollama.
     </p>
 
     <div class="hero-actions">
@@ -697,12 +570,13 @@ footer{
         <span class="btn-arrow">→</span>
       </a>
       <a href="#tools" class="btn-hero btn-hero-ghost">
-        See all 35 tools
+        See all tools
       </a>
     </div>
 
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">35</div><div class="hstat-l">Tools</div></div>
+      <div class="hstat"><div class="hstat-n">40+</div><div class="hstat-l">Tools</div></div>
+      <div class="hstat"><div class="hstat-n">Local&nbsp;AI</div><div class="hstat-l">Built-in</div></div>
       <div class="hstat"><div class="hstat-n">50+</div><div class="hstat-l">Platforms</div></div>
       <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">Subdomain sources</div></div>
       <div class="hstat"><div class="hstat-n">0</div><div class="hstat-l">Tracking</div></div>
@@ -722,12 +596,12 @@ footer{
       <div class="term-body" id="term-body">
         <div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">subdomain enum target.com</span></div>
         <div class="to">→ Querying crt.sh · Certspotter · HackerTarget · OTX…</div>
-        <div><span class="tok">✓</span> <span class="to">147 subdomains across 4 sources · Active: <b style="color:#e8ecf8">89</b> · Unresolved: 13</span></div>
-        <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">email osint target@corp.io</span></div>
-        <div><span class="tok">✓</span> <span class="to">Gravatar found · MX reachable · <span class="te">3 breaches</span> (LinkedIn, Adobe, Dropbox)</span></div>
-        <div><span class="tok">✓</span> <span class="to">Social: GitHub <span class="tok">found</span> · Twitter <span class="tok">found</span> · Reddit <span class="tok">found</span></span></div>
+        <div><span class="tok"></span> <span class="to">147 subdomains across 4 sources · Active: <b style="color:#e8ecf8">89</b> · Unresolved: 13</span></div>
+        <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">email osint <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98ecf9eafffdecd8fbf7eae8b6f1f7">[email&#160;protected]</a></span></div>
+        <div><span class="tok"></span> <span class="to">Gravatar found · MX reachable · <span class="te">3 breaches</span> (LinkedIn, Adobe, Dropbox)</span></div>
+        <div><span class="tok"></span> <span class="to">Social: GitHub <span class="tok">found</span> · Twitter <span class="tok">found</span> · Reddit <span class="tok">found</span></span></div>
         <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">ssl inspect github.com</span></div>
-        <div><span class="tok">✓</span> <span class="to">TLS 1.3 · DigiCert · 147 days left · 34 SANs · <span class="tok">No issues detected</span></span></div>
+        <div><span class="tok"></span> <span class="to">TLS 1.3 · DigiCert · 147 days left · 34 SANs · <span class="tok">No issues detected</span></span></div>
         <div style="margin-top:6px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>
       </div>
     </div>
@@ -752,7 +626,7 @@ footer{
       </div>
       <img
         class="preview-img"
-        src="preview.jpg"
+        src="/home/terry/openintel/openintel/preview.jpg"
         alt="OpenIntel Dashboard Preview"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
       />
@@ -778,8 +652,8 @@ footer{
   <div class="section-wrap" style="position:relative;z-index:1">
     <div class="reveal">
       <div class="s-eyebrow">The Arsenal</div>
-      <div class="s-title">35 tools, all included</div>
-      <div class="s-sub">Intelligence, network recon, utilities — everything ships together. One purchase, every tool, forever.</div>
+      <div class="s-title">40+ tools, all included</div>
+      <div class="s-sub">Intelligence, network recon, GPS lookup, a live threat map, a built-in local AI assistant, utilities — everything ships together. One purchase, every tool, forever.</div>
     </div>
 
     <!-- Category: Intelligence -->
@@ -800,6 +674,8 @@ footer{
         <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></div><div><div class="chip-name">Pastebin Search</div><div class="chip-desc">Paste sites & GitHub leak search</div></div></div>
         <div class="tool-chip"><div class="chip-icon" style="background:rgba(20,184,166,.12);color:#2dd4bf"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><div><div class="chip-name">Universal Search</div><div class="chip-desc">Auto-detect & run all tools at once</div></div></div>
         <div class="tool-chip"><div class="chip-icon" style="background:rgba(99,102,241,.12);color:#818cf8"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01"/></svg></div><div><div class="chip-name">MAC Lookup</div><div class="chip-desc">IEEE OUI vendor identification</div></div></div>
+        <div class="tool-chip"><div class="chip-icon" style="background:rgba(34,197,94,.12);color:#22c55e"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="16" x2="12" y2="18"/><line x1="4" y1="10" x2="2" y2="10"/><line x1="22" y1="10" x2="20" y2="10"/></svg></div><div><div class="chip-name">GPS Lookup</div><div class="chip-desc">Coordinates to address & reverse</div></div></div>
+        <div class="tool-chip" style="border-color:rgba(239,68,68,.25);background:linear-gradient(135deg,rgba(239,68,68,.06),transparent)"><div class="chip-icon" style="background:rgba(239,68,68,.15);color:#ef4444"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg></div><div><div class="chip-name">Live Threat Map <span style="font-size:9px;font-weight:700;text-transform:uppercase;padding:1px 5px;border-radius:8px;background:rgba(239,68,68,.2);color:#ef4444;margin-left:3px;">Live</span></div><div class="chip-desc">Ransomware victims, CISA KEVs, cyber news</div></div></div>
       </div>
     </div>
 
@@ -859,6 +735,26 @@ footer{
     </div>
 
     <div class="features-grid">
+            <div class="feat-card fc-blue reveal" style="border-color:rgba(79,126,248,.22);background:linear-gradient(145deg,var(--surface),rgba(79,126,248,.04))">
+        <div class="feat-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8">
+          <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div class="feat-title" style="margin-bottom:0;">Built-in AI Assistant</div>
+          <span style="font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:10px;background:rgba(79,126,248,.15);color:#7aa0ff;border:1px solid rgba(79,126,248,.25);white-space:nowrap;">New</span>
+        </div>
+        <div class="feat-desc">Powered by Ollama running entirely on your machine. Paste any OSINT result and ask the AI to analyze, summarize, or explain it. Fully offline — no API keys, nothing leaves your system. Supports OSINT-focused and general assistant modes.</div>
+      </div>
+      <div class="feat-card fc-pink reveal" style="border-color:rgba(239,68,68,.22);background:linear-gradient(145deg,var(--surface),rgba(239,68,68,.03))">
+        <div class="feat-icon" style="background:rgba(239,68,68,.12);color:#ef4444">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div class="feat-title" style="margin-bottom:0;">Live Threat Map</div>
+          <span style="font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:10px;background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.25);white-space:nowrap;">Live</span>
+        </div>
+        <div class="feat-desc">A real-time world map showing active ransomware victims, CISA known exploited vulnerabilities, and breaking cyber news — aggregated from ransomware.live, CISA, BleepingComputer, Krebs, SANS ISC and more. Click any event to see full details, who was targeted, and who is responsible.</div>
+      </div>
       <div class="feat-card fc-blue reveal">
         <div class="feat-icon" style="background:rgba(79,126,248,.12);color:#4f7ef8">
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -933,29 +829,30 @@ footer{
     <div class="buy-glow"></div>
     <div class="buy-glow-b"></div>
     <div class="buy-inner">
-      <div class="buy-badge">One-Time Purchase · Lifetime License</div>
-      <h2 class="buy-title">Own it.<br><span>Forever.</span></h2>
-      <p class="buy-sub">No monthly fees. No seat limits. No expiry. Pay once and OpenIntel is yours — every update included.</p>
+      <div class="buy-badge">Monthly · Annual · Lifetime</div>
+      <h2 class="buy-title">Pick your<br><span>plan.</span></h2>
+      <p class="buy-sub">Every plan includes full access to all 40+ tools. No seat limits, no hidden fees.</p>
 
       <!-- Crypto badge -->
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:20px;padding:5px 16px;margin-bottom:36px;">
         <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M9.5 8H14a2.5 2.5 0 0 1 0 5H9.5V8z"/><path d="M9.5 13H14a2.5 2.5 0 0 1 0 5H9.5V13z"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="18" x2="12" y2="20"/></svg>
-        <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;">Crypto payments only — BTC · ETH · USDT · XMR</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;">Crypto payments only — BTC · LTC · ETH · XMR</span>
       </div>
 
       <!-- Pricing cards -->
-      <div class="pricing-cards-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;">
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;">
 
         <!-- Monthly -->
-        <div class="price-card" style="text-align:left;">
+        <div class="price-card" style="min-width:260px;text-align:left;">
           <div class="price-label">Monthly</div>
           <div style="display:flex;align-items:flex-end;gap:4px;margin-bottom:4px;">
-            <div class="price-amount" style="font-size:58px;">$15</div>
+            <div class="price-amount" style="font-size:58px;">€15</div>
             <div style="font-size:14px;color:var(--muted);margin-bottom:14px;font-weight:300;">/month</div>
           </div>
           <div class="price-once">Renews monthly · Cancel anytime</div>
           <ul class="price-list">
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All 35 tools</strong> — full access</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>40+ tools</strong> — full access</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Built-in AI assistant</strong> — local Ollama</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All updates</strong> during subscription</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup support</strong> included</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>LeakOSINT</strong> breach database access</span></li>
@@ -967,24 +864,46 @@ footer{
           </a>
         </div>
 
-        <!-- Lifetime — highlighted -->
-        <div class="price-card" style="text-align:left;border-color:rgba(79,126,248,.4);box-shadow:0 0 100px rgba(79,126,248,.1),inset 0 1px 0 rgba(255,255,255,.05);position:relative;">
-          <!-- Best value badge -->
-          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;white-space:nowrap;font-family:var(--display);">Best Value</div>
-          <div class="price-label" style="margin-top:8px;">Lifetime</div>
+        <!-- Annual — highlighted -->
+        <div class="price-card" style="min-width:260px;text-align:left;border-color:rgba(79,126,248,.4);box-shadow:0 0 100px rgba(79,126,248,.1),inset 0 1px 0 rgba(255,255,255,.05);position:relative;">
+          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;white-space:nowrap;font-family:var(--display);">Most Popular</div>
+          <div class="price-label" style="margin-top:8px;">Annual</div>
           <div style="display:flex;align-items:flex-end;gap:6px;margin-bottom:4px;">
-            <div class="price-amount" style="font-size:58px;color:var(--accent);text-shadow:0 0 60px rgba(79,126,248,.3)">$150</div>
+            <div class="price-amount" style="font-size:58px;color:var(--accent);text-shadow:0 0 60px rgba(79,126,248,.3)">€60</div>
+            <div style="font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:300;">/year</div>
+          </div>
+          <div class="price-once">Billed once a year · <span style="color:var(--green)">Save €120 vs monthly</span></div>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>40+ tools</strong> — full access</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Built-in AI assistant</strong> — local Ollama</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All updates</strong> for the full year</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup support</strong> included</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>LeakOSINT</strong> annual key included</span></li>
+            <li style="opacity:.4"><svg viewBox="0 0 24 24" style="stroke:var(--muted)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Lifetime ownership</span></li>
+          </ul>
+          <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="btn-buy">
+            <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M21.5 2.5L2 9.5l7 2.5 2.5 7 3-5 5 3z"/></svg>
+            Get Annual Access
+          </a>
+        </div>
+
+        <!-- Lifetime -->
+        <div class="price-card" style="min-width:260px;text-align:left;position:relative;">
+          <div class="price-label">Lifetime</div>
+          <div style="display:flex;align-items:flex-end;gap:6px;margin-bottom:4px;">
+            <div class="price-amount" style="font-size:58px;">€250</div>
             <div style="font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:300;">one-time</div>
           </div>
-          <div class="price-once">Pay once · Own it forever · <span style="color:var(--green)">Save $30/yr vs monthly</span></div>
+          <div class="price-once">Pay once · Own it forever · <span style="color:var(--green)">Never pay again</span></div>
           <ul class="price-list">
-            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All 35 tools</strong> — full source code</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>40+ tools</strong> — full source code</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Built-in AI assistant</strong> — local Ollama</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>All future updates</strong> — new tools over time</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup support</strong> included</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>LeakOSINT</strong> lifetime key included</span></li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Lifetime ownership</strong> — never pay again</span></li>
           </ul>
-          <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="btn-buy">
+          <a href="https://t.me/abusllve" target="_blank" rel="noopener noreferrer" class="btn-buy" style="background:transparent;border:1px solid var(--border2);color:var(--text);box-shadow:none;">
             <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M21.5 2.5L2 9.5l7 2.5 2.5 7 3-5 5 3z"/></svg>
             Get Lifetime Access
           </a>
@@ -1010,35 +929,34 @@ footer{
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // custom cursor — dot follows instantly, ring lags behind for that trailing effect
-// skip entirely on touch devices, nothing to track there
 const dot  = document.getElementById('cursor-dot');
 const ring = document.getElementById('cursor-ring');
-const isTouch = window.matchMedia('(hover:none),(pointer:coarse)').matches;
-if (!isTouch) {
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  (function animCursor() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    dot.style.left  = mx + 'px';
-    dot.style.top   = my + 'px';
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animCursor);
-  })();
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animCursor() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  dot.style.left  = mx + 'px';
+  dot.style.top   = my + 'px';
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
 
-  // make the dot pulse slightly bigger when hovering links/buttons
-  document.querySelectorAll('a,button').forEach(el => {
-    el.addEventListener('mouseenter', () => { dot.style.width = '10px'; dot.style.height = '10px'; });
-    el.addEventListener('mouseleave', () => { dot.style.width = '8px'; dot.style.height = '8px'; });
-  });
-}
+// make the dot pulse slightly bigger when hovering links/buttons
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { dot.style.width = '10px'; dot.style.height = '10px'; });
+  el.addEventListener('mouseleave', () => { dot.style.width = '8px'; dot.style.height = '8px'; });
+});
 
 // build the scrolling tool marquee — duplicate the list so the loop looks seamless
 const TOOLS = [
   {icon:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>',name:'OSINT Lookup'},
+  {icon:'<path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>',name:'AI Assistant'},
+  {icon:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/><line x1="12" y1="2" x2="12" y2="4"/>',name:'GPS Lookup'},
+  {icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10"/>',name:'Threat Map'},
   {icon:'<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',name:'Email OSINT'},
   {icon:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',name:'IP Geolocation'},
   {icon:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',name:'DNS Lookup'},
@@ -1098,26 +1016,34 @@ window.addEventListener('scroll', () => {
 const SCREENS = [
   `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">subdomain enum target.com</span></div>
 <div class="to">→ Querying crt.sh · Certspotter · HackerTarget · OTX…</div>
-<div><span class="tok">✓</span> <span class="to">147 subdomains across 4 sources · Active: <b style="color:#e8ecf8">89</b> · Unresolved: 13</span></div>
+<div><span class="tok"></span> <span class="to">147 subdomains across 4 sources · Active: <b style="color:#e8ecf8">89</b> · Unresolved: 13</span></div>
 <div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">email osint target@corp.io</span></div>
-<div><span class="tok">✓</span> <span class="to">Gravatar found · MX reachable · <span class="te">3 breaches</span> (LinkedIn, Adobe, Dropbox)</span></div>
-<div><span class="tok">✓</span> <span class="to">Social: GitHub <span class="tok">✓</span> · Twitter <span class="tok">✓</span> · Reddit <span class="tok">✓</span></span></div>
+<div><span class="tok"></span> <span class="to">Gravatar found · MX reachable · <span class="te">3 breaches</span> (LinkedIn, Adobe, Dropbox)</span></div>
+<div><span class="tok"></span> <span class="to">Social: GitHub <span class="tok"></span> · Twitter <span class="tok"></span> · Reddit <span class="tok"></span></span></div>
 <div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
 
   `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">ssl inspect github.com</span></div>
-<div><span class="tok">✓</span> <span class="to">TLS 1.3 · DigiCert · Expires in 147 days · 34 SANs</span></div>
-<div><span class="tok">✓</span> <span class="to">No weak ciphers · No hostname mismatch · <span class="tok">All checks passed</span></span></div>
+<div><span class="tok"></span> <span class="to">TLS 1.3 · DigiCert · Expires in 147 days · 34 SANs</span></div>
+<div><span class="tok"></span> <span class="to">No weak ciphers · No hostname mismatch · <span class="tok">All checks passed</span></span></div>
 <div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">ip lookup 1.1.1.1</span></div>
-<div><span class="tok">✓</span> <span class="to">Cloudflare · AS13335 · San Jose, US</span></div>
-<div><span class="tok">✓</span> <span class="to">Hosting: <span class="tw">yes</span> · VPN: <span class="tok">no</span> · Tor: <span class="tok">no</span> · Proxy: <span class="tok">no</span></span></div>
+<div><span class="tok"></span> <span class="to">Cloudflare · AS13335 · San Jose, US</span></div>
+<div><span class="tok"></span> <span class="to">Hosting: <span class="tw">yes</span> · VPN: <span class="tok">no</span> · Tor: <span class="tok">no</span> · Proxy: <span class="tok">no</span></span></div>
 <div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
 
   `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">cve search log4j</span></div>
-<div><span class="tok">✓</span> <span class="to">12 results from NVD · Sorted by CVSS score</span></div>
+<div><span class="tok"></span> <span class="to">12 results from NVD · Sorted by CVSS score</span></div>
 <div><span class="te">CRITICAL</span> <span class="to">CVE-2021-44228 · CVSS 10.0 · Log4Shell RCE</span></div>
 <div><span class="te">CRITICAL</span> <span class="to">CVE-2021-45046 · CVSS 9.0 · Incomplete fix bypass</span></div>
 <div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">username lookup h4cker</span></div>
-<div><span class="tok">✓</span> <span class="to">Found on 14/50 platforms — GitHub · HackerOne · Reddit…</span></div>
+<div><span class="tok"></span> <span class="to">Found on 14/50 platforms — GitHub · HackerOne · Reddit…</span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
+
+  `<div><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">gps 52.090694, 5.121389</span></div>
+<div class="to">→ Querying Nominatim · BigDataCloud…</div>
+<div><span class="tok"></span> <span class="to">Driebergseweg 10 · Zeist · Utrecht · Netherlands</span></div>
+<div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tc">threatmap --filter ransomware</span></div>
+<div><span class="tok"></span> <span class="to">28 active victims · LockBit 3.0 · BlackCat · Cl0p</span></div>
+<div><span class="te">HIGH</span> <span class="to">TechCorp Ltd — United States · claimed 2h ago</span></div>
 <div style="margin-top:4px"><span class="tp">openintel</span> <span class="td">~$</span> <span class="tcursor"></span></div>`,
 ];
 let screenIdx = 0;
@@ -1129,15 +1055,10 @@ function showScreen() {
   setTimeout(() => {
     termBody.innerHTML = SCREENS[screenIdx];
     termBody.style.opacity = '1';
-       screenIdx = (screenIdx + 1) % SCREENS.length;
-  }, 380);
+    screenIdx = (screenIdx + 1) % SCREENS.length;
+  }, 350);
 }
-// kick off the first swap after a short delay, then rotate every 5s
-setTimeout(() => {
-  showScreen();
-  setInterval(showScreen, 5000);
-}, 2500);
-
+setInterval(showScreen, 4000);
 </script>
 </body>
 </html>
